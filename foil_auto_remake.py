@@ -1,4 +1,4 @@
-#!python foil_auto_remake.py
+#!python foil_auto_remake.py example.dat
 # -*- coding: utf-8 -*- #
 import numpy as np
 import matplotlib
