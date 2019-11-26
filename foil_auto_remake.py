@@ -1,17 +1,12 @@
-
-#!python k_means.py
+#!python foil_auto_remake.py
 # -*- coding: utf-8 -*- #
 import numpy as np
 import matplotlib
-# matplotlib.use('Agg') # この行を追記
 import matplotlib.pyplot as plt
 import sys
 
 input_file = sys.argv[1]
 print(input_file)
-
-# data = np.genfromtxt(input_file,delimiter="     ",dtype=float)
-# print(data)
 
 f = open(input_file,"r")
 lines = f.readlines()
@@ -20,21 +15,14 @@ f.close()
 file_name = input_file[:-4]
 print(file_name)
 
-
 data=np.zeros((0,2))
 for i in range(1,len(lines)):
-    # print (lines[i])
     if lines[i][0] != '\n':
         tmp = lines[i].split()
         tmpar = [float(tmp[0])*100,float(tmp[1])*100]
-        # print(tmpar)
         data = np.vstack((data,tmpar))
-        # data.append(tmp)
-        # print(tmpar)
-        # print(data)
 
 data = np.hstack((data,np.zeros((len(data),1))))
-# print(data)
 
 data_menseki = 1799
 data_syuutyou = 201
@@ -69,6 +57,7 @@ while(True):
 plt.scatter(data[:,0],data[:,1])
 plt.show()  
 
+# データをテキストファイル化
 data_o = []
 for i in range(len(data)):
     print(str(data[i]))
