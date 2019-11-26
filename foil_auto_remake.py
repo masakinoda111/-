@@ -13,7 +13,6 @@ lines = f.readlines()
 f.close()
 
 file_name = input_file[:-4]
-print(file_name)
 
 data=np.zeros((0,2))
 for i in range(1,len(lines)):
@@ -56,7 +55,6 @@ while(True):
 # データをテキストファイル化
 data_o = []
 for i in range(len(data)):
-    print(str(data[i]))
     data_o.append(str(data[i][0])+'\t'+str(data[i][1])+'\t'+'0'+'\n')
 file_output = open(file_name+'.txt',"w")
 file_output.write('\n'.join(data_o))
