@@ -24,7 +24,7 @@ for i in range(1,len(lines)):
 data = np.hstack((data,np.zeros((len(data),1))))
 
 data_menseki = 1799
-data_syuutyou = 201
+data_syuutyou = 197
 
 while(True):
     bairitux=1
@@ -33,10 +33,10 @@ while(True):
         bairituy = 1801.0/(data_menseki)
     elif (data_menseki>1810):
         bairituy = 1799.0/(data_menseki)
-    elif (data_syuutyou>200):
-        bairitux = 199.0/(data_syuutyou)
-    elif (data_syuutyou<190):
-        bairitux = 201.0/(data_syuutyou)
+    elif (data_syuutyou>196):
+        bairitux = 195.0/(data_syuutyou)
+    elif (data_syuutyou<1):
+        bairitux = 197.0/(data_syuutyou)
     else:
         break
 
