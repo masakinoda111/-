@@ -53,10 +53,6 @@ while(True):
 
 
 
-# グラフを描画
-plt.scatter(data[:,0],data[:,1])
-plt.show()  
-
 # データをテキストファイル化
 data_o = []
 for i in range(len(data)):
@@ -65,3 +61,8 @@ for i in range(len(data)):
 file_output = open(file_name+'.txt',"w")
 file_output.write('\n'.join(data_o))
 file_output.close()
+
+
+# グラフを描画
+plt.scatter(data[:,0],data[:,1])
+plt.show()  
