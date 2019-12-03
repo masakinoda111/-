@@ -18,25 +18,30 @@ data=np.zeros((0,2))
 for i in range(1,len(lines)):
     if lines[i][0] != '\n':
         tmp = lines[i].split()
-        tmpar = [float(tmp[0])*100,float(tmp[1])*100]
+        tmpar = [float(tmp[0])*0.1,float(tmp[1])*0.1]
         data = np.vstack((data,tmpar))
 
 data = np.hstack((data,np.zeros((len(data),1))))
 
-data_menseki = 1799
-data_syuutyou = 197
+data_menseki = 0.0
+data_syuutyou = 0.0
+for i in range(0,len(data)-1):
+    data_menseki += 0.5 * (data[i][0]*data[i+1][1] - data[i][1]*data[i+1][0])
+    data_syuutyou += np.sqrt((data[i][0]-data[i+1][0])**2 + (data[i][1]-data[i+1][1])**2)
+print (data_menseki)
+print(data_syuutyou)
 
 while(True):
     bairitux=1
     bairituy=1
-    if(data_menseki<1800):
-        bairituy = 1801.0/(data_menseki)
-    elif (data_menseki>1810):
-        bairituy = 1799.0/(data_menseki)
-    elif (data_syuutyou>196):
-        bairitux = 195.0/(data_syuutyou)
-    elif (data_syuutyou<1):
-        bairitux = 197.0/(data_syuutyou)
+    if(data_menseki<0.001800):
+        bairituy = 0.001805/(data_menseki)
+    elif (data_menseki>0.001810):
+        bairituy = 0.001805/(data_menseki)
+    elif (data_syuutyou>0.200):
+        bairitux = 0.199/(data_syuutyou)
+    elif (data_syuutyou<0.198):
+        bairitux = 0.199/(data_syuutyou)
     else:
         break
 
@@ -45,7 +50,7 @@ while(True):
     data_menseki = 0
     data_syuutyou = 0
     for i in range(0,len(data)-1):
-        data_menseki += data[i][0]*data[i+1][1] - data[i][1]*data[i+1][0]
+        data_menseki += 0.5*(data[i][0]*data[i+1][1] - data[i][1]*data[i+1][0])
         data_syuutyou += np.sqrt((data[i][0]-data[i+1][0])**2 + (data[i][1]-data[i+1][1])**2)
     print (data_menseki)
     print(data_syuutyou)
